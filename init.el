@@ -23,3 +23,9 @@
 (use-package helm
   :ensure t
   :bind ("M-x" . helm-M-x))
+
+(use-package company
+  :ensure t
+  :defer t
+  :init (global-company-mode)
+  :diminish company-mode)
