@@ -19,3 +19,7 @@
 (use-package evil
   :ensure t
   :init (evil-mode 1))
+
+(use-package helm
+  :ensure t
+  :bind ("M-x" . helm-M-x))
