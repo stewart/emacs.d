@@ -23,6 +23,9 @@
 ;; disable toolbar
 (tool-bar-mode -1)
 
+;; disable startup screen
+(setq inhibit-startup-screen t)
+
 ;; configure backups and autosaves
 (let ((backup-dir (config-file-path "backups"))
       (auto-saves-dir (config-file-path "auto-saves")))
