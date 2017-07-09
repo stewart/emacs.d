@@ -77,3 +77,13 @@
   :defer t
   :init (which-key-mode)
   :diminish which-key-mode)
+
+(use-package rust-mode
+  :ensure t
+  :defer t
+  :mode "\\.rs\\'"
+  :init (progn
+    (use-package flycheck-rust
+      :ensure t
+      :defer t
+      :init (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))))
