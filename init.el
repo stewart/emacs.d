@@ -44,6 +44,11 @@
   :ensure t
   :init (evil-mode 1))
 
+(use-package evil-surround
+  :ensure t
+  :defer t
+  :init (global-evil-surround-mode 1))
+
 (use-package helm
   :ensure t
   :bind ("M-x" . helm-M-x))
