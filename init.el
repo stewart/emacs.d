@@ -7,8 +7,12 @@
 (setq package-enable-at-startup nil)
 (package-initialize)
 
+(defun config-file-path (path)
+  "Expands provided PATH into ~/.emacs.d/PATH."
+  (expand-file-name path user-emacs-directory))
+
 ;; move custom-set-* to a different file
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
+(setq custom-file (config-file-path "custom.el"))
 (load custom-file)
 
 ;; bootstrap use-package
@@ -20,8 +24,8 @@
 (tool-bar-mode -1)
 
 ;; configure backups and autosaves
-(let ((backup-dir (expand-file-name "backups" user-emacs-directory))
-      (auto-saves-dir (expand-file-name "auto-saves" user-emacs-directory)))
+(let ((backup-dir (config-file-path "backups"))
+      (auto-saves-dir (config-file-path "auto-saves")))
   (setq backup-directory-alist `(("." . ,backup-dir))
         auto-save-file-name-transforms `((".*" ,auto-saves-dir t))
         auto-save-list-file-prefix (concat auto-saves-dir ".saves-")))
