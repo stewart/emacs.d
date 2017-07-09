@@ -40,6 +40,9 @@
   kept-new-versions 6
   kept-old-versions 2)
 
+;; disable macOS native fullscreen
+(setq ns-use-native-fullscreen nil)
+
 (use-package evil
   :ensure t
   :init (evil-mode 1))
