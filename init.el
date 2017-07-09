@@ -16,6 +16,9 @@
   (package-refresh-contents)
   (package-install 'use-package))
 
+;; disable toolbar
+(tool-bar-mode -1)
+
 (use-package evil
   :ensure t
   :init (evil-mode 1))
