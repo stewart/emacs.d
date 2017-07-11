@@ -1,3 +1,5 @@
+;;; Bootstrap -----------------------------------------------------------------
+
 (require 'package)
 
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
@@ -7,18 +9,18 @@
 (setq package-enable-at-startup nil)
 (package-initialize)
 
-(defun config-file-path (path)
-  "Expands provided PATH into ~/.emacs.d/PATH."
-  (expand-file-name path user-emacs-directory))
-
-;; move custom-set-* to a different file
-(setq custom-file (config-file-path "custom.el"))
-(load custom-file)
-
 ;; bootstrap use-package
 (unless (package-installed-p 'use-package)
   (package-refresh-contents)
   (package-install 'use-package))
+
+;;; Helper Functions ----------------------------------------------------------
+
+(defun config-file-path (path)
+  "Expands provided PATH into ~/.emacs.d/PATH."
+  (expand-file-name path user-emacs-directory))
+
+;;; Basic Configuration -------------------------------------------------------
 
 ;; disable toolbar
 (tool-bar-mode -1)
@@ -26,25 +28,33 @@
 ;; disable startup screen
 (setq inhibit-startup-screen t)
 
-;; configure backups and autosaves
+;; disable macOS native fullscreen
+(setq ns-use-native-fullscreen nil)
+
+;; move custom-set-* to a different file
+(setq custom-file (config-file-path "custom.el"))
+(load custom-file)
+
+;;; Backups / Autosaves -------------------------------------------------------
+
 (let ((backup-dir (config-file-path "backups/"))
       (auto-saves-dir (config-file-path "auto-saves/")))
   (setq backup-directory-alist `(("." . ,backup-dir))
         auto-save-file-name-transforms `((".*" ,auto-saves-dir t))
         auto-save-list-file-prefix (concat auto-saves-dir ".saves-")))
 
-(setq
-  backup-by-copying t
-  delete-old-versions t
-  version-control t
-  kept-new-versions 6
-  kept-old-versions 2)
+(setq backup-by-copying t
+      delete-old-versions t
+      version-control t
+      kept-new-versions 6
+      kept-old-versions 2)
 
-;; disable macOS native fullscreen
-(setq ns-use-native-fullscreen nil)
+;;; Load Path Customizations --------------------------------------------------
 
-;; configure load path
-(add-to-list 'load-path (config-file-path "setup"))
+(add-to-list 'load-path
+  (config-file-path "setup"))
+
+;;; Packages ------------------------------------------------------------------
 
 (require 'setup-evil)
 
