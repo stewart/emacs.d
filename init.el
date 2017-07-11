@@ -27,8 +27,8 @@
 (setq inhibit-startup-screen t)
 
 ;; configure backups and autosaves
-(let ((backup-dir (config-file-path "backups"))
-      (auto-saves-dir (config-file-path "auto-saves")))
+(let ((backup-dir (config-file-path "backups/"))
+      (auto-saves-dir (config-file-path "auto-saves/")))
   (setq backup-directory-alist `(("." . ,backup-dir))
         auto-save-file-name-transforms `((".*" ,auto-saves-dir t))
         auto-save-list-file-prefix (concat auto-saves-dir ".saves-")))
