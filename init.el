@@ -43,19 +43,10 @@
 ;; disable macOS native fullscreen
 (setq ns-use-native-fullscreen nil)
 
-(use-package evil
-  :ensure t
-  :init (evil-mode 1))
+;; configure load path
+(add-to-list 'load-path (config-file-path "setup"))
 
-(use-package evil-exchange
-  :ensure t
-  :defer t
-  :init (evil-exchange-install))
-
-(use-package evil-surround
-  :ensure t
-  :defer t
-  :init (global-evil-surround-mode 1))
+(require 'setup-evil)
 
 (use-package helm
   :ensure t
