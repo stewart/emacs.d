@@ -40,6 +40,9 @@
 ;; set file used by customize interface
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
+;; require utilities package 
+(require 'init-utils)
+
 (require 'package)
 
 (add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
