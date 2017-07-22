@@ -43,6 +43,11 @@
 ;; Load mode/feature configs
 ;;----------------------------------------------------------------------------
 
+;; ~which-key~ is a minor mode for Emacs that displays the key bindings
+;; following your currently entered incomplete command (a prefix) in a popup.
+(require-package 'which-key)
+(which-key-mode)
+
 (require 'init-evil)
 (require 'init-org)
 (require 'init-helm)
