@@ -38,3 +38,9 @@
 ;; set up ELPA + package.el
 ;; Calls (package-initialize)
 (require 'init-elpa)
+
+;;----------------------------------------------------------------------------
+;; Load mode/feature configs
+;;----------------------------------------------------------------------------
+
+(require 'init-evil)
