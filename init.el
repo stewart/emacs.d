@@ -1,3 +1,23 @@
+;; ----------------------------------------------------------------------------
+;; Initial Changes
+;; ----------------------------------------------------------------------------
+
+;; Add ~/.emacs.d/lisp/ to load path
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+
+;; Measure startup time
+(require 'init-benchmarking)
+
+;; Enable spell checking by changing this to `t`
+(defconst *spell-check-support-enabled* nil)
+
+;; Whether or not we're on a macOS device.
+(defconst *is-a-mac* (eq system-type 'darwin))
+
+;; Check if we're on a known-working version of Emacs
+(when (version< emacs-version "25.2")
+  (message "This Emacs version is not known to be compatible with this config."))
+
 ;;; Bootstrap -----------------------------------------------------------------
 
 (require 'package)
