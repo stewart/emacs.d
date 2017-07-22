@@ -49,19 +49,9 @@
 ;; require utilities package 
 (require 'utils)
 
-(require 'package)
-
-(add-to-list 'package-archives '("org" . "http://orgmode.org/elpa/"))
-(add-to-list 'package-archives '("melpa" . "http://melpa.org/packages/"))
-(add-to-list 'package-archives '("melpa-stable" . "http://stable.melpa.org/packages/"))
-
-(setq package-enable-at-startup nil)
-(package-initialize)
-
-;; bootstrap use-package
-(unless (package-installed-p 'use-package)
-  (package-refresh-contents)
-  (package-install 'use-package))
+;; set up ELPA + package.el
+;; Calls (package-initialize)
+(require 'init-elpa)
 
 ;;; Helper Functions ----------------------------------------------------------
 
@@ -100,43 +90,3 @@
       version-control t
       kept-new-versions 6
       kept-old-versions 2)
-
-;;; Load Path Customizations --------------------------------------------------
-
-(add-to-list 'load-path
-  (config-file-path "setup"))
-
-;;; Packages ------------------------------------------------------------------
-
-(require 'setup-evil)
-
-(use-package helm
-  :ensure t
-  :bind ("M-x" . helm-M-x))
-
-(use-package company
-  :ensure t
-  :defer t
-  :init (global-company-mode)
-  :diminish company-mode)
-
-(use-package flycheck
-  :ensure t
-  :defer t
-  :init (global-flycheck-mode))
-
-(use-package which-key
-  :ensure t
-  :defer t
-  :init (which-key-mode)
-  :diminish which-key-mode)
-
-(use-package rust-mode
-  :ensure t
-  :defer t
-  :mode "\\.rs\\'"
-  :init (progn
-    (use-package flycheck-rust
-      :ensure t
-      :defer t
-      :init (add-hook 'flycheck-mode-hook #'flycheck-rust-setup))))
