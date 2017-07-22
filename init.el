@@ -3,10 +3,10 @@
 ;; ----------------------------------------------------------------------------
 
 ;; Add ~/.emacs.d/lisp/ to load path
-(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
+(add-to-list 'load-path (expand-file-name "settings" user-emacs-directory))
 
 ;; Measure startup time
-(require 'init-benchmarking)
+(require 'benchmarking)
 
 ;; Always load newest byte code
 (setq load-prefer-newer t)
@@ -47,7 +47,7 @@
 (setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
 ;; require utilities package 
-(require 'init-utils)
+(require 'utils)
 
 (require 'package)
 
