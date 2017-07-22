@@ -18,6 +18,21 @@
 (when (version< emacs-version "25.2")
   (message "This Emacs version is not known to be compatible with this config."))
 
+;; ----------------------------------------------------------------------------
+;; Reduce GC during startup
+;; ----------------------------------------------------------------------------
+
+;; define initial GC threshold
+(defconst stwrt/initial-gc-cons-threshold gc-cons-threshold
+            "Initial value of `gc-cons-threshold' at start-up time.")
+
+;; set GC threshold to 128MB
+(setq gc-cons-threshold (* 128 1024 1024))
+
+;; after initialization, reset GC threshold to initial value
+(add-hook 'after-init-hook (lambda ()
+  (setq gc-cons-threshold stwrt/initial-gc-cons-threshold)))
+
 ;;; Bootstrap -----------------------------------------------------------------
 
 (require 'package)
