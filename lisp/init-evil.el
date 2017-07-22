@@ -1,6 +1,6 @@
 ;;; init-evil.el --- Installs and configures evil-mode
 
-(require 'evil)
+(require-package 'evil)
 (evil-mode 1)
 
 (provide 'init-evil)
