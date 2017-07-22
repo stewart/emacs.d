@@ -33,7 +33,12 @@
 (add-hook 'after-init-hook (lambda ()
   (setq gc-cons-threshold stwrt/initial-gc-cons-threshold)))
 
-;;; Bootstrap -----------------------------------------------------------------
+;; ----------------------------------------------------------------------------
+;; Bootstrap
+;; ----------------------------------------------------------------------------
+
+;; set file used by customize interface
+(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
 
 (require 'package)
 
@@ -66,9 +71,9 @@
 ;; disable macOS native fullscreen
 (setq ns-use-native-fullscreen nil)
 
-;; move custom-set-* to a different file
-(setq custom-file (config-file-path "custom.el"))
-(load custom-file)
+;; load variables configured via the customize interface
+(when (file-exists-p custom-file)
+    (load custom-file))
 
 ;;; Backups / Autosaves -------------------------------------------------------
 
