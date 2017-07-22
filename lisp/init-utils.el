@@ -1,4 +1,4 @@
-;;; utils.el --- Utility functions and macros
+;;; init-utils.el --- Utility functions and macros
 
 ;;----------------------------------------------------------------------------
 ;; Macro shorthand for 'with-eval-after-load
@@ -48,5 +48,5 @@
       (set-visited-file-name new-name)
       (rename-buffer new-name))))
 
-(provide 'utils)
-;;; utils.el ends here
+(provide 'init-utils)
+;;; init-utils.el ends here

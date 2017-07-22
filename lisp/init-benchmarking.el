@@ -1,4 +1,4 @@
-;;; benchmarking.el --- Utilities for benchmarking Emacs startup time
+;;; init-benchmarking.el --- Utilities for benchmarking Emacs startup time
 
 (defun stwrt/time-subtract-millis (b a)
   (* 1000.0 (float-time (time-subtract b a))))
@@ -25,6 +25,5 @@ LOAD-DURATION is the time taken in milliseconds to load FEATURE.")
 
 (add-hook 'after-init-hook 'stwrt/show-init-time)
 
-
-(provide 'benchmarking)
-;;; benchmarking.el ends here
+(provide 'init-benchmarking)
+;;; init-benchmarking.el ends here

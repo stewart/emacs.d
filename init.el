@@ -6,10 +6,10 @@
 (when (version< emacs-version "25.2")
   (message "This Emacs version is not known to be compatible with this config."))
 
-;; Add ~/.emacs.d/settings to load path
-(add-to-list 'load-path (expand-file-name "settings" user-emacs-directory))
+;; Add ~/.emacs.d/lisp to load path
+(add-to-list 'load-path (expand-file-name "lisp" user-emacs-directory))
 
-(require 'benchmarking)
+(require 'init-benchmarking)
 (require 'init-basic)
 
 ;; ----------------------------------------------------------------------------
@@ -32,7 +32,7 @@
 ;; ----------------------------------------------------------------------------
 
 ;; require utilities package
-(require 'utils)
+(require 'init-utils)
 
 ;; set up ELPA + package.el
 ;; Calls (package-initialize)
