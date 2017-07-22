@@ -8,8 +8,14 @@
 ;; Measure startup time
 (require 'init-benchmarking)
 
+;; Always load newest byte code
+(setq load-prefer-newer t)
+
 ;; Enable spell checking by changing this to `t`
 (defconst *spell-check-support-enabled* nil)
+
+;; warn when opening files bigger than 100MB
+(setq large-file-warning-threshold 100000000)
 
 ;; Whether or not we're on a macOS device.
 (defconst *is-a-mac* (eq system-type 'darwin))
@@ -70,6 +76,9 @@
 
 ;; disable startup screen
 (setq inhibit-startup-screen t)
+
+;; disable startup screen
+(setq inhibit-startup-message t)
 
 ;; disable macOS native fullscreen
 (setq ns-use-native-fullscreen nil)
