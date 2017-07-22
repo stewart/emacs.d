@@ -2,27 +2,15 @@
 ;; Initial Changes
 ;; ----------------------------------------------------------------------------
 
-;; Add ~/.emacs.d/lisp/ to load path
-(add-to-list 'load-path (expand-file-name "settings" user-emacs-directory))
-
-;; Measure startup time
-(require 'benchmarking)
-
-;; Always load newest byte code
-(setq load-prefer-newer t)
-
-;; Enable spell checking by changing this to `t`
-(defconst *spell-check-support-enabled* nil)
-
-;; warn when opening files bigger than 100MB
-(setq large-file-warning-threshold 100000000)
-
-;; Whether or not we're on a macOS device.
-(defconst *is-a-mac* (eq system-type 'darwin))
-
 ;; Check if we're on a known-working version of Emacs
 (when (version< emacs-version "25.2")
   (message "This Emacs version is not known to be compatible with this config."))
+
+;; Add ~/.emacs.d/settings to load path
+(add-to-list 'load-path (expand-file-name "settings" user-emacs-directory))
+
+(require 'benchmarking)
+(require 'init-basic)
 
 ;; ----------------------------------------------------------------------------
 ;; Reduce GC during startup
@@ -43,44 +31,17 @@
 ;; Bootstrap
 ;; ----------------------------------------------------------------------------
 
-;; set file used by customize interface
-(setq custom-file (expand-file-name "custom.el" user-emacs-directory))
-
-;; require utilities package 
+;; require utilities package
 (require 'utils)
 
 ;; set up ELPA + package.el
 ;; Calls (package-initialize)
 (require 'init-elpa)
 
-;;; Helper Functions ----------------------------------------------------------
-
-(defun config-file-path (path)
-  "Expands provided PATH into ~/.emacs.d/PATH."
-  (expand-file-name path user-emacs-directory))
-
-;;; Basic Configuration -------------------------------------------------------
-
-;; disable toolbar
-(tool-bar-mode -1)
-
-;; disable startup screen
-(setq inhibit-startup-screen t)
-
-;; disable startup screen
-(setq inhibit-startup-message t)
-
-;; disable macOS native fullscreen
-(setq ns-use-native-fullscreen nil)
-
-;; load variables configured via the customize interface
-(when (file-exists-p custom-file)
-    (load custom-file))
-
 ;;; Backups / Autosaves -------------------------------------------------------
 
-(let ((backup-dir (config-file-path "backups/"))
-      (auto-saves-dir (config-file-path "auto-saves/")))
+(let ((backup-dir (expand-file-name "backups/" user-emacs-directory))
+      (auto-saves-dir (expand-file-name "auto-saves/" user-emacs-directory)))
   (setq backup-directory-alist `(("." . ,backup-dir))
         auto-save-file-name-transforms `((".*" ,auto-saves-dir t))
         auto-save-list-file-prefix (concat auto-saves-dir ".saves-")))
