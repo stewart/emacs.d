@@ -10,6 +10,12 @@
 ;; disable toolbar
 (tool-bar-mode -1)
 
+;; disable the menu bar
+(menu-bar-mode -1)
+
+;; disable vertical scrollbar
+(scroll-bar-mode -1)
+
 ;; disable startup screen
 (setq inhibit-startup-screen t)
 
