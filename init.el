@@ -47,6 +47,7 @@
 ;; following your currently entered incomplete command (a prefix) in a popup.
 (require-package 'which-key)
 (which-key-mode)
+(diminish 'which-key-mode)
 
 ;; diminish is used to hide modeline clutter
 (require-package 'diminish)
