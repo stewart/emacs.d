@@ -1,6 +1,6 @@
 ;;; init-org.el --- Initialize org-mode
 
-(require-package 'org)
+(require-package 'org-plus-contrib)
 
 ;; ----------------------------------------------------------------------------
 ;; Key Bindings
