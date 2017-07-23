@@ -48,7 +48,8 @@
 (require-package 'which-key)
 (which-key-mode)
 
+(require 'init-helm)
 (require 'init-evil)
 (require 'init-org)
-(require 'init-helm)
+(require 'init-auto-complete)
 (require 'init-flycheck)
