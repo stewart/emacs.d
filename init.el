@@ -48,6 +48,9 @@
 (require-package 'which-key)
 (which-key-mode)
 
+;; load colorscheme
+(require 'init-theme)
+
 (require 'init-helm)
 (require 'init-evil)
 (require 'init-org)
