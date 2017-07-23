@@ -48,6 +48,9 @@
 (require-package 'which-key)
 (which-key-mode)
 
+;; diminish is used to hide modeline clutter
+(require-package 'diminish)
+
 ;; load colorscheme
 (require 'init-theme)
 
