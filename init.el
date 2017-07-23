@@ -51,3 +51,4 @@
 (require 'init-evil)
 (require 'init-org)
 (require 'init-helm)
+(require 'init-flycheck)
