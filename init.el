@@ -55,8 +55,12 @@
 ;; load colorscheme
 (require 'init-theme)
 
+;; utilities
 (require 'init-helm)
 (require 'init-evil)
 (require 'init-org)
 (require 'init-auto-complete)
 (require 'init-flycheck)
+
+;; languages
+(require 'init-web)
