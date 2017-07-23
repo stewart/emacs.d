@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (flycheck-rust rust-mode evil-exchange evil-surround which-key flycheck company helm evil use-package))))
+    (flycheck company evil-exchange evil-surround evil helm which-key fullframe))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
