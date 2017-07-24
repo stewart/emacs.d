@@ -64,3 +64,4 @@
 
 ;; languages
 (require 'init-web)
+(require 'init-js)
