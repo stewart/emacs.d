@@ -5,7 +5,7 @@
  ;; If there is more than one, they won't work right.
  '(package-selected-packages
    (quote
-    (web-mode flycheck company org-plus-contrib evil-exchange evil-surround evil helm which-key fullframe))))
+    (company-tern web-mode flycheck company org-plus-contrib evil-exchange evil-surround evil helm which-key fullframe))))
 (custom-set-faces
  ;; custom-set-faces was added by Custom.
  ;; If you edit it by hand, you could mess it up, so be careful.
